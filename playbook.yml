@@ -1,0 +1,26 @@
+- hosts: localhost
+  tasks:
+    - name: Ensure directory exists
+      file:
+        path: "{{ ansible_env.HOME }}/.local/lib/sva-sentinelone-update-check"
+        state: directory
+        mode: '0755'
+
+    - name: Copy update_check.sh to the target directory
+      copy:
+        src: files/update_check.sh
+        dest: "{{ ansible_env.HOME }}/.local/lib/sva-sentinelone-update-check/update_check.sh"
+        mode: '0755'
+
+    - name: Set up autostart after 10 minutes
+      copy:
+        dest: "{{ ansible_env.HOME }}/.config/autostart/sva-sentinelone-update-check.desktop"
+        content: |
+          [Desktop Entry]
+          Type=Application
+          Exec=sh -c 'sleep 600; {{ ansible_env.HOME }}/.local/lib/sva-sentinelone-update-check/update_check.sh'
+          Hidden=true
+          NoDisplay=true
+          X-GNOME-Autostart-enabled=true
+          Name=SVA SentinelOne Update Check
+          Comment=Checks for updates of SVA SentinelOne
