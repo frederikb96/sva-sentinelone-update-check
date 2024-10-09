@@ -10,7 +10,7 @@ mkdir -p "$CACHE_DIR"
 
 # Check if update-flag exists
 if [ -f "$FLAG_FILE" ]; then
-    notify-send "Update" "An update is available. Remove the flag file: rm '$FLAG_FILE'"
+    notify-send "Update Sentinelone SVA" "An update is available. Remove the flag file: rm '$FLAG_FILE'"
     exit 0
 fi
 
@@ -28,6 +28,6 @@ if [ -f "$BAK_FILE" ]; then
         # Create the flag file
         touch "$FLAG_FILE"
         # They differ
-        notify-send "Update" "An update is available. Remove the flag file: rm '$FLAG_FILE'"
+        notify-send "Update Sentinelone SVA" "An update is available. Remove the flag file: rm '$FLAG_FILE'"
     fi
 fi
