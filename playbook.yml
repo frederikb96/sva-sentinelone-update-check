@@ -12,7 +12,7 @@
         dest: "{{ ansible_env.HOME }}/.local/lib/sva-sentinelone-update-check/update_check.sh"
         mode: '0755'
 
-    - name: Set up autostart after 10 minutes
+    - name: Set up autostart
       copy:
         dest: "{{ ansible_env.HOME }}/.config/autostart/sva-sentinelone-update-check.desktop"
         content: |
