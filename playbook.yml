@@ -18,9 +18,9 @@
         content: |
           [Desktop Entry]
           Type=Application
-          Exec=sh -c 'sleep 600; {{ ansible_env.HOME }}/.local/lib/sva-sentinelone-update-check/update_check.sh'
-          Hidden=true
-          NoDisplay=true
+          Exec=/bin/bash -c 'sleep 60; {{ ansible_env.HOME }}/.local/lib/sva-sentinelone-update-check/update_check.sh'
+          Hidden=false
+          NoDisplay=false
           X-GNOME-Autostart-enabled=true
           Name=SVA SentinelOne Update Check
           Comment=Checks for updates of SVA SentinelOne
